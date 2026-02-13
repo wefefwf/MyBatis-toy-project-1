@@ -5,9 +5,6 @@
 > **MyTreasureArchive는 내가 좋아하는 노래, 영화, 맛집을 저장하고  
 한 줄 이유와 함께 기록하는 개인 취향 아카이브 프로젝트입니다.**
 >
-> Spring Boot와 MariaDB, MyBatis를 활용해 만든  
-> **노래·영화·맛집**을 기록하는 개인 취향 아카이브 프로젝트입니다.
-
 ---
 
 ## 프로젝트 컨셉 (Design Concept)
