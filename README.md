@@ -75,28 +75,6 @@
 
 ---
 
-## 프로젝트 구조 예시
-
-src/main/java
-└── com.mytreasurearchive
-├── controller
-├── service
-├── mapper
-└── domain
-
-src/main/resources
-├── mapper
-│ └── ItemMapper.xml
-└── application.properties
-
-templates
-├── main.html
-├── list.html
-├── detail.html
-└── form.html
-
----
-
 ## 한 줄 소개 (Portfolio)
 
 **MyTreasureArchive는 내가 좋아하는 노래, 영화, 맛집을 저장하고  
