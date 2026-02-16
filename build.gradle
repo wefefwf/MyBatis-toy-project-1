@@ -1,7 +1,7 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.5.0'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.mytreasurearchive'
@@ -9,35 +9,52 @@ version = '0.0.1-SNAPSHOT'
 description = 'development'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+    // ✅ Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // ✅ Web (Controller, REST API)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // ✅ Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // ✅ DevTools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // ✅ MariaDB Driver
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    // ✅ Thymeleaf Layout Dialect
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    
+   	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+   		testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+
+    // ✅ Test (JUnit 포함)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // (선택) JUnit 플랫폼 런처
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
