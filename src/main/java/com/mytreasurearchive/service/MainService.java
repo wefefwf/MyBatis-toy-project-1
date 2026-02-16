@@ -13,8 +13,14 @@ public class MainService {
 	
 	@Autowired
 	private MainMapper mainMapper;
+	
 	//전체 리스트 들고오기
 	public List<Item> itemList(){
 		return mainMapper.itemList();
 	};
+	
+	//카테고리 리스트 들고오기
+	public List<Item> getCategory(String category){
+		return mainMapper.getCategory(category);
+	}
 }
