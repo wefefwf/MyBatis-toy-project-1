@@ -35,7 +35,7 @@ public class MainController {
 		model.addAttribute("itemList",itemList);
 		return "views/main";
 	}
-
+	//카테고리에 맞게 들고오기
 	@GetMapping("/items/{category}")
 	public String goCategory(@PathVariable("category") String category, Model model) {
 		
@@ -50,5 +50,11 @@ public class MainController {
 		    }
 		model.addAttribute("itemList",itemList);
 		return "views/main";
+	}
+	
+	//추가 폼 가기
+	@GetMapping("/addForm")
+	public String goAddForm(){
+		return "views/addForm";
 	}
 }
