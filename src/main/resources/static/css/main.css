@@ -313,3 +313,31 @@ body {
     line-height: 1;
     margin-bottom: 30px;
 }
+/* 카드 클릭 가능하게 */
+.card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* 모달 스타일 커스터마이징 */
+.modal-content {
+    background: #2a2a2a;
+    color: #F2F1E6;
+    border: 2px solid #F2F1E6;
+}
+
+.modal-header {
+    border-bottom: 1px solid #555;
+}
+
+.modal-footer {
+    border-top: 1px solid #555;
+}
+
+.btn-close {
+    filter: invert(1);
+}

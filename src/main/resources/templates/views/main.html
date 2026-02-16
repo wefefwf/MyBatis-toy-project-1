@@ -48,25 +48,62 @@
         </div>
 
         <!-- 키패드 영역 (리스트 출력) -->
-        <div class="phone-keypad">
-            <div class="row">
-                <div class="col-4" th:each="item : ${itemList}">
-                    <div class="card shadow-sm my-3">
-                        <div class="square-img my-2">
-                            <img th:src="@{/upload/mytreasurearchive/{file}(file=${item.image})}" alt="item image" class="card-img-top">
+        <!-- 키패드 영역 (리스트 출력) -->
+<div class="phone-keypad">
+    <div class="row">
+        <div class="col-4" th:each="item : ${itemList}">
+            <div class="card shadow-sm my-3" data-bs-toggle="modal" th:data-bs-target="'#itemModal' + ${item.id}">
+                <div class="square-img my-2">
+                    <img th:src="@{/upload/mytreasurearchive/{file}(file=${item.image})}" alt="item image" class="card-img-top">
+                </div>
+            </div>
+            
+            <!-- 모달 -->
+            <div class="modal fade" th:id="'itemModal' + ${item.id}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" th:text="${item.title}">제목</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img th:src="@{/upload/mytreasurearchive/{file}(file=${item.image})}" alt="item image" style="width:100%; border-radius:10px; margin-bottom:20px;">
+                            <p><strong>카테고리 : </strong> <span th:text="${item.category}">BOOK</span></p>
+                            <!-- 노래면 -->
+                            <th:block th:if = "${item.category =='song'}">
+                            <p><strong>가수 : </strong><span th:text="${item.extra1}">가수</span></p>
+							<p><strong>더 알아보기 : </strong> <a th:href="${item.extra2}" target="_blank" class ="text-decoration-none">뮤직 비디오</a></p>                            
+							</th:block>
+                            <!-- 책이면 -->
+                            <th:block th:if = "${item.category =='book'}">
+                            <p><strong>작가 : </strong><span th:text="${item.extra1}">작가</span></p>
+                            <p><strong>더 알아보기 : </strong> <a th:href="${item.extra2}" target="_blank"  class ="text-decoration-none">구매처</a></p>
+                            </th:block>
+                            <!-- 영화면 -->
+                            <th:block th:if = "${item.category =='movie'}">
+                            <p><strong>제작사/감독 : </strong><span th:text="${item.extra1}">제작사/감독</span></p>
+							<p><strong>더 알아보기 : </strong> <a th:href="${item.extra2}" target="_blank"  class ="text-decoration-none">보러가기</a></p>                            
+							</th:block>
+                            <p><strong>생성일 : </strong> <span th:text="${#temporals.format(item.createdAt, 'yyyy.MM.dd')}">2026.02.16</span></p>
+                            <p><strong>메모 : </strong></p>
+                            <p th:text="${item.reason}">메모 내용</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a th:href="@{/edit/{id}(id=${item.id})}" class="btn btn-primary">수정</a>
+                            <a th:href="@{/delete/{id}(id=${item.id})}" class="btn btn-danger" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+</div>
     <!-- 맨위로 버튼 -->
     <button class="fixed-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
         <i class="bi bi-arrow-up"></i>
     </button>
 </div>
-
 <script th:src="@{bootstrap/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
