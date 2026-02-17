@@ -67,4 +67,18 @@ public class MainController {
 		mainService.add(item, file);
 		return "redirect:/main";
 	}
+	
+	//제거 
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") long id){
+		mainService.delete(id);
+		return "redirect:/main";
+	}
+	//수정 폼 가기
+	@GetMapping("/modify/{id}")
+	public String goModify(@PathVariable("id") long id, Model model){
+		Item item = mainService.getItem(id);
+		model.addAttribute("item",item);
+		return "views/modifyForm";
+	}
 }

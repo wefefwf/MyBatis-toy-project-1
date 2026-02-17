@@ -18,4 +18,10 @@ public interface MainMapper {
 	
 	//추가 
 	void add(Item item);
+
+	//삭제 
+	void delete(@Param("id")long id);
+	
+	//글 하나 가져가기
+	Item getItem(@Param("id")long id);
 }

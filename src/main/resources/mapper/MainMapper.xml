@@ -22,4 +22,13 @@
     VALUES (#{title}, #{category}, #{reason}, #{extra1}, #{extra2}, #{image})
 </insert>
 	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType = "long">
+	DELETE FROM item WHERE id = #{id}
+	</delete>
+	
+	<!-- 게시글 하나 -->
+	<select id="getItem" parameterType = "long" resultType = "com.mytreasurearchive.domain.Item">
+		SELECT * FROM item WHERE id = #{id}
+	</select>
 </mapper>

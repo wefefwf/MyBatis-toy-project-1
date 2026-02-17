@@ -89,8 +89,8 @@
                             <p th:text="${item.reason}">메모 내용</p>
                         </div>
                         <div class="modal-footer">
-                            <a th:href="@{/edit/{id}(id=${item.id})}" class="btn btn-secondary">수정</a>
-							<a href="#" class="btn btn-secondary"
+                            <a th:href="@{/modify/{id}(id=${item.id})}" class="btn btn-secondary">수정</a>
+							<a class="btn btn-secondary"
 							   th:onclick="'if(confirm(\'정말 삭제하시겠습니까?\')) location.href=\'/delete/' + ${item.id} + '\';'">
 							   삭제
 							</a>

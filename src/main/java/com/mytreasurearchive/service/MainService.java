@@ -60,5 +60,14 @@ public class MainService {
 	    // 3. mapper insert 실행
 	    mainMapper.add(item);
 	}
+
+	//제거 
+	public void delete(long id){
+		mainMapper.delete(id);
+	}
 	
+	//게시글 하나 가져오기
+	public Item getItem(long id){
+		return mainMapper.getItem(id);
+	}
 }
