@@ -70,4 +70,34 @@ public class MainService {
 	public Item getItem(long id){
 		return mainMapper.getItem(id);
 	}
+	
+	//글 수정
+		public void modify(Item item, MultipartFile file) throws Exception {
+
+		    if(file != null && !file.isEmpty()) {
+
+		        File parent = new File(uploadPath);
+		        if(!parent.exists()) parent.mkdirs();
+
+		        UUID uid = UUID.randomUUID();
+		        String extension =
+		            StringUtils.getFilenameExtension(file.getOriginalFilename());
+
+		        //저장명 만들기
+		        String saveName = uid.toString() + "." + extension;
+
+		        // 1. 파일 만들어서 경로 바꾸기
+		        File savedFile = new File(parent, saveName);
+		        file.transferTo(savedFile);
+
+		        
+		        // 2. DB에는 파일명만 저장
+		        item.setImage(saveName);
+		    }
+
+		    // 3. mapper insert 실행
+		    mainMapper.modify(item);
+		}
+
+
 }

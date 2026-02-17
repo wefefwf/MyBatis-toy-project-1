@@ -81,4 +81,11 @@ public class MainController {
 		model.addAttribute("item",item);
 		return "views/modifyForm";
 	}
+
+	//수정
+	@PostMapping("/modify")
+	public String modifyForm(Item item,@RequestParam("file")  MultipartFile file) throws Exception{
+		mainService.modify(item, file);
+		return "redirect:/main";
+	}
 }

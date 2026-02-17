@@ -31,4 +31,16 @@
 	<select id="getItem" parameterType = "long" resultType = "com.mytreasurearchive.domain.Item">
 		SELECT * FROM item WHERE id = #{id}
 	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="modify" parameterType="com.mytreasurearchive.domain.Item">
+		UPDATE item SET 
+		    title = #{title},
+		    category = #{category},
+		    image = #{image},    
+		    extra1 = #{extra1},
+		    extra2 = #{extra2},
+		    reason = #{reason}
+		WHERE id = #{id};
+	</update>
 </mapper>

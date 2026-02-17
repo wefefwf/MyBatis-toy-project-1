@@ -18,7 +18,8 @@
     </div>
     <!-- 폼 -->
 	<div class="row justify-content-center my-3">
-  	<form action="/add" method="post" enctype="multipart/form-data" style ="width:700px">
+  	<form action="/modify" method="post" enctype="multipart/form-data" style ="width:700px">
+  	<input type = "hidden" th:value = "${item.id}" name = "id" id = "id">
     <!-- 제목 -->
     <div class="mb-3">
       <label for="title" class="form-label">제목</label>
@@ -39,7 +40,7 @@
     <!-- 이미지 업로드 -->
     <div class="mb-3">
       <label for="image" class="form-label">이미지</label>
-      <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+      <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
     </div>
 
     <!-- Extra1 -->

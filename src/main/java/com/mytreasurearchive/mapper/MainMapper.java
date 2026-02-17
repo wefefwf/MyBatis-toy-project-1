@@ -24,4 +24,7 @@ public interface MainMapper {
 	
 	//글 하나 가져가기
 	Item getItem(@Param("id")long id);
+	
+	//글 수정
+	void modify(Item item);
 }
