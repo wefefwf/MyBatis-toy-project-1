@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mytreasurearchive.domain.Item;
 import com.mytreasurearchive.service.MainService;
@@ -56,5 +59,12 @@ public class MainController {
 	@GetMapping("/addForm")
 	public String goAddForm(){
 		return "views/addForm";
+	}
+	
+	//추가
+	@PostMapping("/add")
+	public String addForm(Item item,@RequestParam("file")  MultipartFile file) throws Exception{
+		mainService.add(item, file);
+		return "redirect:/main";
 	}
 }

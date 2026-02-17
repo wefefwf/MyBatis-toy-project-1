@@ -15,4 +15,7 @@ public interface MainMapper {
 	
 	//카테고리 리스트
 	List<Item> getCategory(@Param("category")String category);
+	
+	//추가 
+	void add(Item item);
 }

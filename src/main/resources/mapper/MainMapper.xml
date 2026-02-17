@@ -15,4 +15,11 @@
 		SELECT * FROM item
 		WHERE category = #{category}	
 	</select>
+	
+	<!-- 글 추가  -->
+	<insert id="add" parameterType="com.mytreasurearchive.domain.Item">
+    INSERT INTO item (title, category, reason, extra1, extra2, image)
+    VALUES (#{title}, #{category}, #{reason}, #{extra1}, #{extra2}, #{image})
+</insert>
+	
 </mapper>

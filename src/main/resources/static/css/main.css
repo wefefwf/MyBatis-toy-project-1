@@ -1,7 +1,21 @@
 body {
-    background-color: black;
+    background-color: #000;
+    
+    /* 두 개의 점 레이어를 만들어 서로 위치를 엇갈리게 배치합니다 */
+    background-image: 
+        radial-gradient(circle, #555 2.5px, transparent 0),
+        radial-gradient(circle, #555 2.5px, transparent 0);
+    
+    /* 별 사진처럼 드문드문한 간격 설정 */
+    background-size: 80px 80px;
+    
+    /* 두 번째 레이어의 위치를 정확히 절반(40px)씩 옮겨서 지그재그를 만듭니다 */
+    background-position: 0 0, 40px 40px;
+    
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
-
 .square-img {
     width: 100%;
     aspect-ratio: 1 / 1;

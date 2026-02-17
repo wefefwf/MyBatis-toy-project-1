@@ -7,7 +7,7 @@
 <link th:href="@{/bootstrap/bootstrap.min.css}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <script th:src="@{js/jquery-3.7.1.min.js}"></script>
-<link th:href="@{/css/modifyForm.css}" rel="stylesheet" />
+<link th:href="@{/css/addForm.css}" rel="stylesheet" />
 </head>
 <body>
 <!-- 메인 페이지 -->
@@ -39,25 +39,25 @@
     <!-- 이미지 업로드 -->
     <div class="mb-3">
       <label for="image" class="form-label">이미지</label>
-      <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
     </div>
 
     <!-- Extra1 -->
     <div class="mb-3">
       <label for="extra1" class="form-label">Extra1</label>
-      <input type="text" class="form-control" id="extra1" name="extra1" placeholder="추가 정보 입력" required>
+      <input type="text" class="form-control" id="extra1" name="extra1" placeholder="추가 정보 입력">
     </div>
 
     <!-- Extra2 -->
     <div class="mb-3">
       <label for="extra2" class="form-label">Extra2</label>
-      <input type="text" class="form-control" id="extra2" name="extra2" placeholder="추가 정보 입력" required>
+      <input type="text" class="form-control" id="extra2" name="extra2" placeholder="추가 정보 입력">
     </div>
 
     <!-- 메모 -->
     <div class="mb-3">
       <label for="reason" class="form-label">메모</label>
-      <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="좋아하게 된 이유" required></textarea>
+      <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="메모 입력"></textarea>
     </div>
 
     <!-- 제출 버튼 -->
